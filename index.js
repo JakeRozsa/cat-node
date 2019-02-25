@@ -1,9 +1,9 @@
 //THIS IS THE SAME EVERY TIME
-import express from 'express'
-import bp from 'body-parser'
+let express = require('express')
+let bp = require('body-parser')
 //creates express application
 let server = express()
-
+let port = 3000
 
 
 //Middlewear
@@ -12,17 +12,18 @@ server.use(bp.urlencoded({ extended: true }))
 
 
 //Routes
+let catRoutes = require('./server-assets/routes/cat-routes')
 
-
+server.use('/api/cats', catRoutes)
 
 
 //Catchall
 server.use('*', (request, response, next) => {
-    response.status(404).send('No Matching Routes')
+    response.status(400).send('No Matching Routes')
 })
 
 
 //start server
-server.listen(3000, () => {
-    console.log('Server is running on port: 3000')
+server.listen(port, () => {
+    console.log('Server is running on port:' + port)
 })
