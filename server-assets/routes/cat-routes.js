@@ -1,7 +1,5 @@
 const router = require('express').Router()
 
-
-
 //Only for Monday
 let cats = [{
     name: 'Garfield',
@@ -13,7 +11,6 @@ let cats = [{
     name: 'Tom',
     age: 6
 }]
-
 
 //GetAllCats
 router.get('', (request, response, next) => {
@@ -28,7 +25,6 @@ router.get('/:id', (request, response, next) => {
     }
     response.status(200).send(cat)
 })
-
 
 router.post('', (request, response, next) => {
     //request.body is the object sent from the client
@@ -45,8 +41,6 @@ router.delete('/:id', (req, res, next) => {
     }
     res.status(400).send('No such cat at that id')
 })
-
-
 //DO NOT FORGET THIS LINE
 module.exports = router
 

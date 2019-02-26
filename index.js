@@ -13,9 +13,11 @@ server.use(bp.urlencoded({ extended: true }))
 
 //Routes
 let catRoutes = require('./server-assets/routes/cat-routes')
-
+let dogRoutes = require('./server-assets/routes/dog-routes')
+let mouseRoutes = require('./server-assets/routes/mouse-routes')
 server.use('/api/cats', catRoutes)
-
+server.use('/api/dogs', dogRoutes)
+server.use('/api/mice', mouseRoutes)
 
 //Catchall
 server.use('*', (request, response, next) => {
